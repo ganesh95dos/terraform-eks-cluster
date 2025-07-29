@@ -1,23 +1,16 @@
-
 apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: aws-auth
+  namespace: kube-system
 data:
-  mapRoles: |
-    - groups:
-      - system:bootstrappers
-      - system:nodes
-      rolearn: arn:aws:iam::149536475766:role/tws-cluster-node-group-eks-node-group-20250614082825344200000001
-      username: system:node:{{EC2PrivateDNSName}}
-
   mapUsers: |
+    - userarn: arn:aws:iam::149536475766:user/admin-user
+      username: admin-user
+      groups:
+        - system:masters
     - userarn: arn:aws:iam::149536475766:user/teraform
       username: teraform
       groups:
         - system:masters
 
-kind: ConfigMap
-metadata:
-  creationTimestamp: "2025-06-14T09:27:44Z"
-  name: aws-auth
-  namespace: kube-system
-  resourceVersion: "8610"
-  uid: 87edbfe8-a79b-4de6-a1ba-8dff5a87a04a

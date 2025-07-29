@@ -1,7 +1,0 @@
-mapUsers: |
-  - userarn: arn:aws:iam::149536475766:user/teraform
-    username: teraform
-    groups:
-      - system:masters
-
-

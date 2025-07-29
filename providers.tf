@@ -1,3 +1,3 @@
-provider "aws"{
+provider "aws" {
   region = local.region
 }
